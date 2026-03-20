@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://logicraft.com.co/sitemap.xml
