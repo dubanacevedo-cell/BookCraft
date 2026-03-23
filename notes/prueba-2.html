@@ -134,7 +134,45 @@ a:hover { text-decoration: underline }
   <main class="main">
         <h1 class="note-title">prueba 2</h1>
         <div class="note-meta"><span>'2026-03-20'</span></div>
-        <div class="prose"><p>--- publish: true ---</p><p>--- publish: true ---</p><h2>hola esto es una prueba </h2><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+        <div class="prose"><p>--- publish: true ---</p><p>--- publish: true ---</p><p>hola</p><div data-content="flowchart TD
+    subgraph Usuarios[&quot;👥 Usuarios&quot;]
+        USR[&quot;Usuario / Administrador / EPS / Operador&quot;]
+    end
+
+<pre><code>subgraph SegInfra[&amp;quot;🛡 Seguridad Infraestructura&amp;quot;]
+    FW[&amp;quot;Firewall Perimetral\nAzure Firewall&amp;quot;]
+    WAF_S[&amp;quot;Web Application Firewall\nAzure Front Door · OWASP Top 10 · DDoS&amp;quot;]
+end
+
+subgraph SegApp[&amp;quot;🔐 Seguridad Aplicación&amp;quot;]
+    AUTH[&amp;quot;Autenticación\nKeycloak OIDC/OAuth2 · JWT\nSSO · Federación EPS · Azure AD&amp;quot;]
+    RBAC[&amp;quot;Control de Roles RBAC\nAdministrador · Operador SSDM · EPS · Visualizador\nPermisos por módulo vía ms-portal&amp;quot;]
+    VALID[&amp;quot;Validación de Entrada\nAPI Gateway rate limiting\nMalla validadora ms-cargas-masivas\nORM TypeORM parameterized queries&amp;quot;]
+end
+
+subgraph ProtDatos[&amp;quot;🔒 Protección de Datos&amp;quot;]
+    TLS[&amp;quot;Cifrado en Tránsito\nTLS 1.3 HTTPS · Avro Schema Registry Kafka&amp;quot;]
+    AUDIT_S[&amp;quot;Registro Auditoría\naudit_events todas las transacciones\nAcciones: crear/modificar/inactivar/consultar/exportar/imprimir&amp;quot;]
+    CIFRADO[&amp;quot;Cifrado en Reposo\nAzure Database TDE · Blob Storage AES-256\nKey Vault rotación 90 días · Managed Identity sin secretos hardcoded&amp;quot;]
+    MASK[&amp;quot;Enmascaramiento Datos Sensibles\nLogs sin PII · SAS tokens corta duración\nScriptModule credenciales solo vía Key Vault&amp;quot;]
+end
+
+subgraph Defender[&amp;quot;🛡 Postura de Seguridad Cloud&amp;quot;]
+    CSPM[&amp;quot;Microsoft Defender for Cloud\nCSPM · CWPP · Alertas en tiempo real&amp;quot;]
+end
+
+USR --&gt; FW
+FW --&gt; WAF_S
+WAF_S --&gt; AUTH
+AUTH --&gt; RBAC
+RBAC --&gt; VALID
+VALID --&gt; TLS
+TLS --&gt; AUDIT_S
+TLS --&gt; CIFRADO
+CIFRADO --&gt; MASK
+MASK --&gt; CSPM
+</code></pre>
+<p>&quot; data-mermaid-block=&quot;&quot;&gt;</div><p></p><p></p><p></p></p>
 </div></main>
 </div>
 </body>
